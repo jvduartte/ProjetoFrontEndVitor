@@ -548,7 +548,7 @@ header #menu-btn:hover{
     line-height: 5rem;
     text-align: center;
     font-size: 2rem;
-    color:var(--white);
+    color:#374351;
     background:var(--purple);
 }
 
@@ -560,7 +560,7 @@ header #menu-btn:hover{
 
 .experience-item span{
     background:#d2ba96;
-    color: var(--white);
+    color: #374351;
     padding: 0.5rem 1.5rem;
     font-size: 1.8rem;
     border-radius: 50rem;

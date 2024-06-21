@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- bibliotecas -->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/lib/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/lib/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/login.css">
+
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div id="custom_container" class="custom_container">
+        <div class="tab-content">
+            <h1 class="custom_logo "><a href="HTML/index.html#hero">Financial Monetary Vision</a></h1>
+            <!-- Pills navs -->
+            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="tab-register" href="Login.html" role="tab"
+                       aria-controls="pills-register" aria-selected="false">Login</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                       aria-controls="pills-login" aria-selected="true">Cadastrar</a>
+                </li>
+            </ul>
+            <!-- Pills navs -->
+            <!-- Pills content -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                    <form>
+                        <div class="text-center mb-3">
+
+                            <!--
+
+                            -->
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </button>
+
+
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input type="text" id="loginNome" class="form-control" placeholder="Digite seu Nome"
+                                   required />
+                        </div>
+
+                        <!-- Email input -->
+                        <div class=" form-outline mb-4">
+                            <input type="email" id="loginEmail" class="form-control" placeholder="Digite seu Email"
+                                   required />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="loginPassword" class="form-control" required
+                                   placeholder="Digite sua senha" />
+
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input type="text" id="loginTelefone" class="form-control" placeholder="Digite seu Telefone"
+                                   required />
+                        </div>
+                        <!-- 2 column grid layout -->
+                        <div class="row mb-2">
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Checkbox -->
+
+                            </div>
+
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Simple link
+                                    <a href="#!">Esqueci a senha</a>
+                                -->
+
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <!-- Submit button -->
+                        <div style="display: flex; justify-content: space-between;">
+                            <button type="button" id="send-button1" class="nav-link active btn btn-primary btn-block" style="flex: 1; margin-right: 5px;" onclick="InserirUsuario()">Cadastrar</button>
+                            <button type="button" id="send-button2" class="nav-link active btn btn-primary btn-block" style="flex: 1; margin-left: 5px;" onclick="window.location.href = 'index.html';">Voltar</button>
+                        </div>
+
+                        <!-- Register buttons -->
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+
+    function InserirUsuario() {
+        // Obtenha os valores dos controles HTML
+        var nome = $('#loginNome').val();
+        var email = $('#loginEmail').val();
+        var senha = $('#loginPassword').val();
+        var telefone = $('#loginTelefone').val();
+        var tipoUsuario = true;
+
+        // Crie um objeto de usuário para enviar
+        var dados = {
+            Nome: nome,
+            Email: email,
+            Senha: senha,
+            Telefone: telefone,
+            TipoUsuario: tipoUsuario ? true : false
+        };
+
+        // Faça a chamada AJAX
+        $.ajax({
+            url: '/Usuario/InserirUsuario',
+            type: "POST",
+            dataType: "json",
+            data: dados,
+            success: function (resultado) {
+                if (resultado.success) {
+                    alert(resultado.message);  // Exibe a mensagem de sucesso ou erro
+                    if (resultado.success) {
+                        window.location.href = "/Usuario/Login";
+                    }
+                } else {
+                    alert(resultado.message);  // Exibe a mensagem de falha
+                }
+            },
+            error: function () {
+                alert('Erro na requisição AJAX.');
+            }
+        });
+    }
+
+</script>
+
+</html>

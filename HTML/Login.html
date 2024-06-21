@@ -1,0 +1,152 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-ico">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+<!-- bibliotecas -->
+<link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="assets/lib/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="assets/lib/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/login.css">
+
+<title>Login Page</title>
+
+<body>
+    <div id="custom_container" class="custom_container">
+        <div class="tab-content">
+            <h1 class="custom_logo "><a href="/Home/Index#hero">Financial Monetary Vision</a></h1>
+            <!-- Pills navs -->
+            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                        aria-controls="pills-login" aria-selected="true">Login</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="tab-register" href="Cadastro.html" role="tab"
+                        aria-controls="pills-register" aria-selected="false">Cadastrar</a>
+                </li>
+            </ul>
+            <!-- Pills navs -->
+            <!-- Pills content -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                    <form>
+                        <div class="text-center mb-3">
+
+                            <!-- 
+
+                            -->
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </button>
+
+
+                        </div>
+
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="loginEmail" class="form-control" placeholder="Digite seu Email" required />
+
+                        </div>
+
+                        <!-- Password input -->
+
+                        <div class="mb-3">
+                            <input id="loginPassword" type="password" class="form-control" placeholder="Digite a senha">
+                            <span id="show-hide-password" class="input-group-text">
+                                <i class="fa fa-eye-slash"></i>
+                            </span>
+                        </div>
+                        
+
+                        <!-- 2 column grid layout -->
+                        <div class="row mb-4">
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Checkbox -->
+
+                            </div>
+
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <!-- Simple link 
+                                    <a href="#!">Esqueci a senha</a>
+                                -->
+
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                      <!-- Submit button -->
+                      <div style="display: flex; justify-content: space-between;">
+                        <button type="button" id="send-button1" class="nav-link active btn btn-primary btn-block" style="flex: 1; margin-right: 5px;" onclick="InserirUsuario()">Entrar</button>
+                        <button type="button" id="send-button2" class="nav-link active btn btn-primary btn-block" style="flex: 1; margin-left: 5px;" onclick="window.location.href = 'index.html';">Voltar</button>
+                    </div>
+
+                        <!-- Register buttons -->
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#show-hide-password').click(function () {
+            var senhaInput = $('#loginPassword');
+            var tipoInput = senhaInput.attr('type');
+
+            // Alternar entre o tipo de input password e text
+            if (tipoInput === 'password') {
+                senhaInput.attr('type', 'text');
+                $('#show-hide-password i').removeClass('fa-eye-slash').addClass('fa-eye');
+            } else {
+                senhaInput.attr('type', 'password');
+                $('#show-hide-password i').removeClass('fa-eye').addClass('fa-eye-slash');
+            }
+        });
+    });
+    function ConsultaLogin() {
+        var email = $("#loginEmail").val();
+        var senha = $("#loginPassword").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/Usuario/ConsultarUsuario",
+            data: { Email: email, Senha: senha },
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    window.location.href = '/Home/Index';
+
+                } else {
+                    // Exiba uma mensagem de erro
+                    alert("Erro: " + result.message);
+                }
+            },
+            error: function (error) {
+                console.error(error);
+                // Lógica para lidar com erros de chamada Ajax
+            }
+        });
+    }
+</script>
+</html>

@@ -11,6 +11,7 @@
 
     <!-- Font-Awesome CSS -->
     <link rel="stylesheet" href="assets/vendors/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/all.min.css" />
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="assets/vendors/swiper/swiper.css" />
@@ -46,15 +47,45 @@
         <!-- Logo End -->
 
         <!-- Navbar -->
-        <nav class="navbar">
-            <a href="#home">INICIO</a>
-            <a href="#about">SOBRE</a>
-            <a href="#service">SERVIÇOS</a>
-            <a href="#portfolio">PORTIFÓLIO</a>
-            <a href="#testimonial">DEPOIMENTOS</a>
-            <a href="#blog">NOTÍCIAS</a>
-            <a href="#contact">CONTATO</a>
-        </nav>
+        <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-home fa-lg" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="#home" style="margin-left: 10px;">INICIO</a>
+            </span>
+            
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-info-circle fa-lg" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="#about" style="margin-left: 10px;">SOBRE</a>
+            </span>
+            
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-gavel fa-lg" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="#service" style="margin-left: 10px;">SERVIÇO</a>
+            </span>
+            
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fas fa-window-restore fa-lg" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="#portfolio" style="margin-left: 10px;">PORTIFOLIO</a>
+            </span>
+            
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-users fa-lg" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="#testimonial" style="margin-left: 10px;">DEPOIMENTO</a>
+            </span>
+            
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-file fa-lg" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="#blog" style="margin-left: 10px;">NOTICIA</a>
+            </span>
+            
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-phone-square fa-lg" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="#contact" style="margin-left: 10px;">CONTATO</a>
+            </span>
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-user" aria-hidden="true" style="color: #d3cfc3;"></i>
+                <a href="Login.html" style="margin-left: 10px;">LOGIN</a>
+            </span>
 
         <!-- Menubar -->
         <div class="fas fa-bars" id="menu-btn"></div>
@@ -300,25 +331,25 @@
         <div class="box-container">
 
             <div class="service-item">
-                <i class="fas fa-code"></i>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
                 <h3>Gestão de Ativos</h3>
                 <p>Como funciona: Ela otimiza o ciclo de vida dos ativos, desde a aquisição até o descarte, considerando custos, riscos e oportunidades.</p>
             </div>
 
             <div class="service-item">
-                <i class="fas fa-paint-brush"></i>
+                <i class="fa fa-university" aria-hidden="true"></i>
                 <h3>Banking de Investimento</h3>
                 <p>Como funciona: Ele auxilia em operações estruturadas no mercado primário, como aberturas de capital e lançamentos de títulos de dívida e creditos. </p>
             </div>
 
             <div class="service-item">
-                <i class="fas fa-camera"></i>
+                <i class="fa fa-briefcase" aria-hidden="true"></i>
                 <h3>Mercado de Capitais</h3>
                 <p>Como funciona: Divide-se em mercado primário (emissão de títulos pelas empresas) e mercado secundário (negociação entre investidores) . </p>
             </div>
 
             <div class="service-item">
-                <i class="fas fa-bullhorn"></i>
+                <i class="fa fa-home" aria-hidden="true"></i>
                 <h3>Corretagem</h3>
                 <p>Como funciona: Pode ser fixa (valor constante por operação), variável (percentual sobre o total movimentado) ou mista (combinação de fixa e variável) .</p>
             </div>
@@ -352,14 +383,12 @@
         <div class="gallery">
 
             <ul class="controls">
-                <li class="button btn active" data-filter="Gestão de Ativos">Gestão de Ativos</li>
-                <li class="button btn" data-filter="Banking de Investimento">Banking de Investimento</li>
-                <li class="button btn" data-filter="Mercado de Capitais">Mercado de Capitais</li>
-                <li class="button btn" data-filter="Corretagem">Corretagem</li>
-                <li class="button btn" data-filter="Consultoria Financeira">Consultoria Financeira</li>
-                <li class="button btn" data-filter="Plataformas de Trading">Plataformas de Trading</li>
+                <li class="button btn active" data-filter="all">Todos</li>
+                <li class="button btn" data-filter="web">Serviços mais acessado</li>
+                <li class="button btn" data-filter="design">Serviços mais comentados</li>
+                <li class="button btn" data-filter="photography">Servços mais comprados</li>
             </ul>
-    
+
             <div class="box-container">
     
                 <div class="portfolio-item image web">
@@ -678,7 +707,7 @@
                 <p>Nossos canais de contatos</p>
     
                 <div class="info-item">
-                    <h4>Phone:</h4>
+                    <h4>Telefone:</h4>
                     <div class="detail">
                         <div class="fas fa-phone"></div>
                         <p>+123-456-789</p>
