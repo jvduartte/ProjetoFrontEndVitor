@@ -116,6 +116,7 @@
                 </div>
             </div>
         </section>
+        
         <div class="modal fade" id="EditarAgendamento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -235,7 +236,7 @@
         </div>
 
         <div class="modal fade" id="ExcluirAgendamento" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+            aria-hidden="true">s
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header"
@@ -346,8 +347,7 @@
                 </div>
 
             </div>
-        </div>
-        </div>
+        </div>       
 
         <div class="modal fade" id="InserirAgendamento" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -479,7 +479,7 @@
                 $('#ExcTel').val(Telefone)
             }
 
-            function InserirUsuario() {
+            function InserirAgendamento() {
 
                 var nome = $('#Nome').val();
                 var email = $('#Email').val();
@@ -543,7 +543,7 @@
                 });
             }
 
-            function AlterarUsuario() {
+            function AlterarAgendamento) {
                 var id = $("#IdEdt").val();
                 var nome = $("#EditNome").val();
                 var senha = $("#EditSenha").val();
@@ -616,7 +616,7 @@
                 });
             }
 
-            function ExcluirUsuario() {
+            function ExcluirAgendamento() {
                 // Obtenha o ID do usuário a ser excluído
                 var userId = $('#IdExc').val();
 

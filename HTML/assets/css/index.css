@@ -93,3 +93,18 @@ footer {
     height: 590px;
     overflow: hidden;
 }
+/*--------------------------------------------------------------
+# Butao voltar
+--------------------------------------------------------------*/
+button{
+    background-color: #374351 !important;
+    border: none !important;
+    color: #d3cfc3 !important;
+    transition: .5s;
+}
+
+button:hover{
+    background-color: #d3cfc3 !important;
+    color: #374351 !important;
+    border: 1px solid #d2ba96 !important;
+}

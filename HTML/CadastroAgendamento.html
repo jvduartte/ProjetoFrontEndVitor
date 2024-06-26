@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-ico">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+<!-- bibliotecas -->
+<link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="assets/lib/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="assets/lib/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/login.css">
+
+
+<title>Login Page</title>
+
+<body>
+    <!-- Cabeçalho com logo e nome da empresa -->
+    <div style="background-color: #374351; color: white; padding: 10px; text-align: center;">
+        <a href="#home" style="text-decoration: none; color: white; display: inline-flex; align-items: center;">
+            <img src="assets/images/Home/logo.jpg" alt="Financial Monetary Vision"
+                style="width: 100px; height: 100px; margin-right: 10px;">
+            <h1 style="margin: 0; font-size: 36px; color: #d2ba96;">Financial Monetary Vision</h1>
+        </a>
+    </div>
+    <div class="container">
+        <div class="modal-header" style="background-color:#374351; color: #d2ba96; border-color: #eea236;">
+            <h1 class="modal-title" id="exampleModalLabel">Adicionar Agendamento</h1>
+        </div>
+
+        <div class="modal-body">
+            <form>
+                <p style="color:red">Campos com * vermelho são obrigatórios</p>
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                        <input id="Nome" type="date" class="form-control" placeholder="Digite o nome do cliente">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:red">*</label>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                        <select id="Servico" class="form-select">
+                            <option value="">Escolha o Serviço</option>
+                            <option value="VolumeBrasileiro">Design De Experiências em VR</option>
+                            <option value="Volume5D">Criação De Tour Virtuais</option>
+                            <option value="EfeitoSirene">Programas De Treinamento Em VR</option>
+                            <option value="VolumeExpress">Eventos Interativos Em VR</option>
+                            <option value="HidraGloss">Demonstrações Virtuais De Produtos</option>
+                            <option value="HidraGloss">Publicidade Em Realidade Aumentada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Checkboxes de horários com texto branco -->
+                <div class="mb-3 d-flex align-items-center" style="color: rgb(0, 0, 0);">
+                    <input type="checkbox" id="chk08M" class="form-check-input" value="08:00"
+                        style="margin-right: 10px;" data-group="horario" disabled>
+                    <label class="form-check-label" for="chk08">Atendimento das 8:00</label>
+                    <span id="Span08M" style="color:red;"></span>
+                </div>
+
+                <div class="mb-3 d-flex align-items-center" style="color: rgb(0, 0, 0);">
+                    <input type="checkbox" id="chk10M" class="form-check-input" value="10:00"
+                        style="margin-right: 10px;" data-group="horario" disabled>
+                    <label class="form-check-label" for="chk10">Atendimento das 10:00</label>
+                    <span id="Span10M" style="color:red;"></span>
+                </div>
+
+                <div class="mb-3 d-flex align-items-center" style="color: rgb(0, 0, 0);">
+                    <input type="checkbox" id="chk13M" class="form-check-input" value="13:00"
+                        style="margin-right: 10px;" data-group="horario" disabled>
+                    <label class="form-check-label" for="chk13">Atendimento das 13:00</label>
+                    <span id="Span13M" style="color:red;"></span>
+                </div>
+
+                <div class="mb-3 d-flex align-items-center" style="color: rgb(0, 0, 0);">
+                    <input type="checkbox" id="chk15M" class="form-check-input" value="15:00"
+                        style="margin-right: 10px;" data-group="horario" disabled>
+                    <label class="form-check-label" for="chk15">Atendimento das 15:00</label>
+                    <span id="Span15M" style="color:red;"></span>
+                </div>
+
+                <div class="mb-3 d-flex align-items-center" style="color: rgb(0, 0, 0);">
+                    <input type="checkbox" id="chk17M" class="form-check-input" value="17:00"
+                        style="margin-right: 10px;" data-group="horario" disabled>
+                    <label class="form-check-label" for="chk17">Atendimento das 17:00</label>
+                    <span id="Span17M" style="color:red;"></span>
+                </div>
+
+                <div class="mb-3 d-flex align-items-center" style="color: #000000;">
+                    <input type="checkbox" id="chk19M" class="form-check-input" value="19:00"
+                        style="margin-right: 10px;" data-group="horario" disabled>
+                    <label class="form-check-label" for="chk19">Atendimento das 19:00</label>
+                    <span id="Span19M" style="color:red;"></span>
+                </div>
+                <!-- Fim dos checkboxes de horários -->
+
+                <input type="hidden" id="IdEdt" value="">
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"onclick="window.location.href = 'index.html';">Voltar</button>
+            <button type="button" class="btn btn-primary" onclick="InserirUsuario()">Adicionar</button>
+        </div>
+    </div>
+
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#show-hide-password').click(function () {
+            var senhaInput = $('#loginPassword');
+            var tipoInput = senhaInput.attr('type');
+
+            // Alternar entre o tipo de input password e text
+            if (tipoInput === 'password') {
+                senhaInput.attr('type', 'text');
+                $('#show-hide-password i').removeClass('fa-eye-slash').addClass('fa-eye');
+            } else {
+                senhaInput.attr('type', 'password');
+                $('#show-hide-password i').removeClass('fa-eye').addClass('fa-eye-slash');
+            }
+        });
+    });
+    function ConsultaLogin() {
+        var email = $("#loginEmail").val();
+        var senha = $("#loginPassword").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/Usuario/ConsultarUsuario",
+            data: { Email: email, Senha: senha },
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    window.location.href = '/Home/Index';
+
+                } else {
+                    // Exiba uma mensagem de erro
+                    alert("Erro: " + result.message);
+                }
+            },
+            error: function (error) {
+                console.error(error);
+                // Lógica para lidar com erros de chamada Ajax
+            }
+        });
+    }
+</script>
+
+</html>
+
+
+</div>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/lib/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+</head>
+
+<body style="background-color: #9aa09c;">
+
+
+
+    <section class="maneger-page-section">
+        <div class="container page-maneger" style="background-color:  #9aa09c;">
+
+            <div class="add-user-button">
+                <h1 class="section-title cliente-title-maneger">Gerenciamento de Serviço</h1>
+                <br />
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-4">
+                            <input id="filtro" type="text" class="form-control" placeholder="Pesquisar Produtos..."
+                                aria-label="Filtrar" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
+                        <button class="btn btn-success btn-lg" onclick="" data-bs-toggle="modal"
+                            data-bs-target="#InserirServico">
+                            <i class="fa fa-plus"></i>Adicionar Serviço
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container table-responsive">
+                <table id="TbClientes" class="table">
+                    <colgroup>
+                        <col class="tc-nome">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Valor </th>
+                            
+                            <th class="editar">Editar</th>
+                            <th class="excluir">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr id="@item.Id">
+                            <td>@item.Id</td>
+                            <td>@item.Serviço</td>
+                            <td>@item.Valor</td>
+                            
+                           
+                            <td >
+                                <button class="btn btn-default"
+                                    onclick="definirEdt('@item.Id', '@item.Serviço', '@item.valor')"
+                                    data-bs-toggle="modal" data-bs-target="#EditarServico">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                            <td >
+                                <button class="btn btn-default"
+                                    onclick="definirExc('@item.Id', '@item.Serviço', '@item.valor')"
+                                    data-bs-toggle="modal" data-bs-target="#ExcluirServico">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <section class="container text-center">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <div>
+                    <button type="button" id="send-button2" class="nav-link active btn btn-danger btn-block"
+                        style="flex: 1; margin-left: 5px;" onclick="window.location.href = 'index.html';">
+                        Voltar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal fade" id="EditarServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header"
+                        style="background-color:  #9ba19d; color: rgb(110, 5, 209); border-color: #374351;">
+                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Serviço</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <p style="color:red">Campos com * vermelho são obrigatórios</p>
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="EditNome" type="text" class="form-control"
+                                        placeholder="Digite o nome do Serviço">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="EditSenha" type="text" class="form-control"
+                                        placeholder="Digite o a senha">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                           
+                            <input type="hidden" id="IdEdt" value="" />
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick=" AlterarUsuario()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ExcluirServico" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header"
+                        style="background-color: #9ba19d; color: rgb(110, 5, 209); border-color: #374351;">
+                        <h1 class="modal-title" id="exampleModalLabel">Excluir Serviço</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="nome">Serviço</label>
+                                <input type="text" id="ExcNome" class="form-control" placeholder=""
+                                    readonly>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="Valor">Valor</label>
+                                <input type="email" id="ExcEmail" class="form-control" placeholder=""
+                                    readonly>
+
+                          
+
+                            </div>
+                            <input type="hidden" id="IdExc" class="form-control" placeholder="Digite seu nome..."
+                                readonly>
+
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="button" onclick="ExcluirUsuario()" class="btn btn-primary">Excluir</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="InserirServico" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header"
+                        style="background-color: #9ba19d; color: rgb(110, 5, 209); border-color: #374351;">
+                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Serviço</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <p style="color:red">Campos com * vermelho são obrigatórios</p>
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="Serviço" type="text" class="form-control"
+                                        placeholder="Digite o nome do cliente">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="Valor" type="text" class="form-control" placeholder="Digite o a senha">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                          
+
+                            <input type="hidden" id="IdEdt" value="" />
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="InserirUsuario()">Adicionar Serviço</button><!--onclick para chamar a funcao de alteração-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <script src="assets/lib/swiper/swiper-bundle.min.js"></script>
+
+        <script src="assets/lib/jquery/dist/jquery.min.js"></script>
+
+        <script src="assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+       
+
+    </section>
+
+</body>
+
+</html>
